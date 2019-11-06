@@ -16,6 +16,7 @@
 , "browserify"
 , "castnow"
 , "clean-css"
+, {"coc-tsserver": "1.x"}
 , "coffee-script"
 , "coinmon"
 , "configurable-http-proxy"
