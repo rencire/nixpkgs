@@ -10,6 +10,7 @@
 , languagetool
 , Cocoa, CoreFoundation, CoreServices
 , buildVimPluginFrom2Nix
+, nodePackages
 
 # coc-go dependency
 , go
@@ -121,6 +122,12 @@ self: super: {
         --replace 'const cmd = `GOPATH=''${gopath}; go ''${args}`' 'const cmd = `GOPATH=''${gopath}; ${go}/bin/go ''${args}`'
     '';
   });
+
+  coc-tsserver = buildVimPluginFrom2Nix {
+    pname = "coc-tsserver";
+    version = nodePackages."coc-tsserver-1.x".version;
+    src = nodePackages."coc-tsserver-1.x" + "/lib/node_modules/coc-tsserver";
+  };
 
   # Only official releases contains the required index.js file
   coc-nvim = buildVimPluginFrom2Nix rec {
