@@ -6208,6 +6208,10 @@ in
 
   mandoc = callPackage ../tools/misc/mandoc { };
 
+  mangohud = callPackage ../tools/graphics/mangohud/combined.nix {
+    libXNVCtrl = linuxPackages.nvidia_x11.settings.libXNVCtrl;
+  };
+
   manix = callPackage ../tools/nix/manix {};
 
   marktext = callPackage ../applications/misc/marktext { };
