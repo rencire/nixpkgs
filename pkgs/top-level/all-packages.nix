@@ -18609,6 +18609,8 @@ in
 
     gcadapter-oc-kmod = callPackage ../os-specific/linux/gcadapter-oc-kmod { };
 
+    hid-nintendo = callPackage ../os-specific/linux/hid-nintendo { };
+
     hyperv-daemons = callPackage ../os-specific/linux/hyperv-daemons { };
 
     e1000e = if stdenv.lib.versionOlder kernel.version "4.10" then  callPackage ../os-specific/linux/e1000e {} else null;
