@@ -19443,7 +19443,7 @@ in
 
     gcadapter-oc-kmod = callPackage ../os-specific/linux/gcadapter-oc-kmod { };
 
-    hid-nintendo = if builtins.elem kernel.version ["libre" "4.4" "4.9"] then null else callPackage ../os-specific/linux/hid-nintendo { };
+    hid-nintendo = callPackage ../os-specific/linux/hid-nintendo { };
 
     hyperv-daemons = callPackage ../os-specific/linux/hyperv-daemons { };
 
