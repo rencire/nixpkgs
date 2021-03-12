@@ -1,7 +1,3 @@
-# References:
-# - See `pkgs/os-specific/linux/xpadneo/default.nix`
-# - Also see: https://nixos.wiki/wiki/Linux_kernel
-
 { lib, stdenv, fetchFromGitHub, kernel }:
 
 stdenv.mkDerivation rec {
