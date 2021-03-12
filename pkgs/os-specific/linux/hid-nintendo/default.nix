@@ -37,6 +37,6 @@ stdenv.mkDerivation rec {
     license = licenses.gpl2;
     maintainers = [ maintainers.rencire ];
     platforms = platforms.linux;
-    broken = builtins.elem kernel.version ["libre" "4.4" "4.9"];
+    broken = stdenv.lib.versionOlder kernel.version "4.14";
   };
 }
