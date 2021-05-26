@@ -885,6 +885,18 @@ with pkgs;
 
   gobgp = callPackage ../tools/networking/gobgp { };
 
+  kdiskmark-unwrapped = libsForQt5.callPackage ../tools/system/kdiskmark { };
+
+  kdiskmark = symlinkJoin {
+    inherit (kdiskmark-unwrapped) name meta;
+    nativeBuildInputs = [ makeWrapper ];
+    paths = [ kdiskmark-unwrapped ];
+    postBuild = ''
+      wrapProgram $out/bin/kdiskmark \
+        --prefix PATH ":" "${fio}/bin"
+    '';
+  };
+
   metapixel = callPackage ../tools/graphics/metapixel { };
 
   pferd = callPackage ../tools/misc/pferd {};
